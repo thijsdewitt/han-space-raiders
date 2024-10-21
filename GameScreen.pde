@@ -2,9 +2,10 @@ int[][] grid; //<>//
 boolean isButtonPressed = false;
 
 void setupGameScreen() {
-  grid = loadMap("maps/dust2.png");
+  // grid = loadMap("maps/dust2.png");
+  grid = loadMap("maps/tutorial_2.png");
 
-  UNIT = calculateUnitSize();
+  UNIT = constrain(calculateUnitSize(), 16, 64);
   SCALE = UNIT / 16;
 
   setupPlayer1();
@@ -27,7 +28,13 @@ void drawGameScreen() {
 
   push();
   float translateX = (width - gridWidth) / 2;
-  float translateY = constrain(height / 2 - player1Pos.y * UNIT, height - gridHeight, 0);
+  float translateY = (height - gridHeight) / 2;
+  if (gridHeight > height) {
+    translateY = constrain(height / 2 - player1Pos.y * UNIT, height - gridHeight, 0);
+  }
+  if (gridWidth > width) {
+    translateX = constrain(width / 2 - player1Pos.x * UNIT, width - gridWidth, 0);
+  }
 
   if (playerCount[playerCountIndex] == "2") {
     translateX = (width - gridWidth) / 2;
@@ -48,7 +55,7 @@ void drawGameScreen() {
 }
 
 void drawControls() {
-  textSize(30);
+  textSize(32);
   textAlign(CENTER, CENTER);
   fill(#22FFFFFF);
   float[] buttonProps = {60, 60, 40, 40};
