@@ -15,7 +15,6 @@ String[] treasureCount = {"20%", "40%", "60%", "80%", "100%"};
 
 void setupGameSetupScreen() {
   textFont(tiny5);
-  audio_background.loop();
 
   fill(WHITE);
   textSize(48);
@@ -24,7 +23,7 @@ void setupGameSetupScreen() {
 }
 
 void drawGameSetupScreen() {
-  background(PRIMARY_600);
+  background(PRIMARY_950);
 
   text("AANTAL SPELERS", width / 2, height * 0.3 - 60);
   playerCountIndex = drawButtonBar(width / 2, height * 0.3, playerCount, playerCountIndex);
@@ -38,9 +37,9 @@ void drawGameSetupScreen() {
   float[] _startButton = {width / 2, height * 0.8, textWidth("START SPEL") + 70, 70};
   startButton = _startButton;
 
-  fill(PRIMARY_950);
+  fill(PRIMARY_600);
   if (isMouseOver(startButton)) {
-    fill(PRIMARY_900);
+    fill(PRIMARY_700);
   }
   drawButton("START SPEL", startButton);
 

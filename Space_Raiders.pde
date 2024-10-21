@@ -1,5 +1,6 @@
 import processing.sound.SoundFile;
 
+final int SCREEN_START = 0;
 final int SCREEN_GAME_SETUP = 1;
 final int SCREEN_GAME = 2;
 final int SCREEN_END = 3;
@@ -10,7 +11,7 @@ final int SCREEN_WIN = 5;
 float SCALE = 4;
 float UNIT = 16 * SCALE;
 
-int screen = SCREEN_GAME_SETUP;
+int screen = SCREEN_START;
 
 void setup() {
   size(1200, 900);
@@ -18,11 +19,14 @@ void setup() {
   fullScreen(2);
 
   setupAssets();
-  setupGameSetupScreen();
+  setupStartScreen();
 }
 
 void draw() {
   switch(screen) {
+  case SCREEN_START:
+    drawStartScreen();
+    break;
   case SCREEN_GAME_SETUP:
     drawGameSetupScreen();
     break;
@@ -46,6 +50,9 @@ void draw() {
 
 void mouseClicked() {
   switch(screen) {
+  case SCREEN_START:
+    mouseClickedStartScreen();
+    break;
   case SCREEN_GAME_SETUP:
     mouseClickedGameSetupScreen();
     break;
@@ -68,22 +75,11 @@ void mouseClicked() {
 }
 
 void keyPressed() {
-
   switch(screen) {
-  case SCREEN_GAME_SETUP:
-    // mouseClickedGameSetupScreen();
-    break;
   case SCREEN_GAME:
     keyPressedGameScreen();
     break;
-  case SCREEN_END:
-    // mouseClickedEndScreen();
-    break;
-  case SCREEN_HIGHSCORES:
-    // mouseClickedHighScoresScreen();
-    break;
   default:
-    //mouseClickedGameSetupScreen();
     break;
   }
 }
