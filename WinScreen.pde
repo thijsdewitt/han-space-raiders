@@ -8,6 +8,6 @@ void drawWinScreen() {
 }
 
 void mouseClickedWinScreen() {
-  setupStartScreen();
-  screen = SCREEN_START;
+  setupGameSetupScreen();
+  screen = SCREEN_GAME_SETUP;
 }

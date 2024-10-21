@@ -1,6 +1,6 @@
 import processing.sound.SoundFile;
 
-final int SCREEN_START = 1;
+final int SCREEN_GAME_SETUP = 1;
 final int SCREEN_GAME = 2;
 final int SCREEN_END = 3;
 final int SCREEN_HIGHSCORES = 4;
@@ -10,80 +10,80 @@ final int SCREEN_WIN = 5;
 float SCALE = 4;
 float UNIT = 16 * SCALE;
 
-int screen = SCREEN_START;
+int screen = SCREEN_GAME_SETUP;
 
 void setup() {
   size(1200, 900);
   noSmooth();
   fullScreen(2);
-  
+
   setupAssets();
-  setupStartScreen();
+  setupGameSetupScreen();
 }
 
 void draw() {
   switch(screen) {
-    case SCREEN_START:
-      drawStartScreen();
-      break;
-    case SCREEN_GAME:
-      drawGameScreen();
-      break;
-    case SCREEN_END:
-      drawEndScreen();
-      break;
-    case SCREEN_HIGHSCORES:
-      drawHighScoresScreen();
-      break;
-    case SCREEN_WIN:
-      drawWinScreen();
-      break;
-    default:
-    drawStartScreen();
+  case SCREEN_GAME_SETUP:
+    drawGameSetupScreen();
+    break;
+  case SCREEN_GAME:
+    drawGameScreen();
+    break;
+  case SCREEN_END:
+    drawEndScreen();
+    break;
+  case SCREEN_HIGHSCORES:
+    drawHighScoresScreen();
+    break;
+  case SCREEN_WIN:
+    drawWinScreen();
+    break;
+  default:
+    drawGameSetupScreen();
     break;
   }
 }
 
 void mouseClicked() {
   switch(screen) {
-    case SCREEN_START:
-      mouseClickedStartScreen();
-      break;
-    case SCREEN_GAME:
-      mouseClickedGameScreen();
-      break;
-    case SCREEN_END:
-      mouseClickedEndScreen();
-      break;
-    case SCREEN_HIGHSCORES:
-      mouseClickedHighScoresScreen();
-      break;
-    case SCREEN_WIN:
-      mouseClickedWinScreen();
-      break;
-    default:
-    mouseClickedStartScreen();
+  case SCREEN_GAME_SETUP:
+    mouseClickedGameSetupScreen();
+    break;
+  case SCREEN_GAME:
+    mouseClickedGameScreen();
+    break;
+  case SCREEN_END:
+    mouseClickedEndScreen();
+    break;
+  case SCREEN_HIGHSCORES:
+    mouseClickedHighScoresScreen();
+    break;
+  case SCREEN_WIN:
+    mouseClickedWinScreen();
+    break;
+  default:
+    mouseClickedGameSetupScreen();
     break;
   }
 }
 
 void keyPressed() {
-  
+
   switch(screen) {
-    case SCREEN_START:
-      // mouseClickedStartScreen();
-      break;
-    case SCREEN_GAME:
-      keyPressedGameScreen();
-      break;
-    case SCREEN_END:
-      // mouseClickedEndScreen();
-      break;
-    case SCREEN_HIGHSCORES:
-      // mouseClickedHighScoresScreen();
-      break;
-    default:
-    //mouseClickedStartScreen();
+  case SCREEN_GAME_SETUP:
+    // mouseClickedGameSetupScreen();
+    break;
+  case SCREEN_GAME:
+    keyPressedGameScreen();
+    break;
+  case SCREEN_END:
+    // mouseClickedEndScreen();
+    break;
+  case SCREEN_HIGHSCORES:
+    // mouseClickedHighScoresScreen();
+    break;
+  default:
+    //mouseClickedGameSetupScreen();
     break;
   }
 }

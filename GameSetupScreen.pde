@@ -13,7 +13,7 @@ String[] badRaiderCount = {"2", "4", "6", "8", "10"};
 int treasureCountIndex = 0;
 String[] treasureCount = {"20%", "40%", "60%", "80%", "100%"};
 
-void setupStartScreen() {
+void setupGameSetupScreen() {
   textFont(tiny5);
   audio_background.loop();
 
@@ -23,7 +23,7 @@ void setupStartScreen() {
   strokeWeight(3);
 }
 
-void drawStartScreen() {
+void drawGameSetupScreen() {
   background(PRIMARY_600);
 
   text("AANTAL SPELERS", width / 2, height * 0.3 - 60);
@@ -34,7 +34,6 @@ void drawStartScreen() {
 
   text("AANTAL SCHATTEN", width / 2, height * 0.6 - 60);
   treasureCountIndex = drawButtonBar(width / 2, height * 0.6, treasureCount, treasureCountIndex);
-
 
   float[] _startButton = {width / 2, height * 0.8, textWidth("START SPEL") + 70, 70};
   startButton = _startButton;
@@ -49,7 +48,7 @@ void drawStartScreen() {
   image(blue_coin, 200, 300, UNIT, UNIT);
 }
 
-void mouseClickedStartScreen() {
+void mouseClickedGameSetupScreen() {
   if (isMouseOver(startButton)) {
     setupGameScreen();
     screen = SCREEN_GAME;
