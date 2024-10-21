@@ -42,7 +42,7 @@ void setupAssets() {
   coin = new Gif (this, "assets/images/coin.gif");
   blue_coin = new Gif (this, "assets/images/blue_coin.gif");
   button = new Gif (this, "assets/images/button.gif");
-  oxygen = new Gif (this, "assets/images/oxygen-3.gif");
+  oxygen = new Gif (this, "assets/images/oxygen.gif");
   spikes = new Gif (this, "assets/images/spikes.gif");
   portal = new Gif (this, "assets/images/portal.gif");
   gate_left = new Gif (this, "assets/images/gate_left.gif");
