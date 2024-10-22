@@ -66,7 +66,7 @@ void drawGameSetupScreen() {
 void mouseClickedGameSetupScreen() {
   if (isMouseOver(gameSetupstartButtonProps)) {
     audio_pickup_coin.play();
-    setupGameScreen();
+    setupGameScreen("dust2");
     screen = SCREEN_GAME;
   }
 

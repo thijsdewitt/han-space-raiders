@@ -4,6 +4,8 @@ void setupStartScreen() {
 }
 
 float[] startButtonProps = new float[4];
+float[] highscoresButtonProps = new float[4];
+float[] tutorialButtonProps = new float[4];
 
 void drawStartScreen() {
   background(PRIMARY_950);
@@ -29,6 +31,22 @@ void drawStartScreen() {
     fill(PRIMARY_700);
   }
   drawButton("START GAME", startButtonProps);
+
+  highscoresButtonProps = startButtonProps.clone();
+  highscoresButtonProps[BUTTON_Y] = height * 0.6;
+  fill(PRIMARY_600);
+  if (isMouseOver(highscoresButtonProps)) {
+    fill(PRIMARY_700);
+  }
+  drawButton("HIGHSCORES", highscoresButtonProps);
+
+  tutorialButtonProps = startButtonProps.clone();
+  tutorialButtonProps[BUTTON_Y] = height * 0.8;
+  fill(PRIMARY_600);
+  if (isMouseOver(tutorialButtonProps)) {
+    fill(PRIMARY_700);
+  }
+  drawButton("TUTORIAL", tutorialButtonProps);
 }
 
 void mouseClickedStartScreen() {
@@ -36,5 +54,17 @@ void mouseClickedStartScreen() {
     audio_pickup_coin.play();
     setupGameSetupScreen();
     screen = SCREEN_GAME_SETUP;
+  }
+
+  if (isMouseOver(highscoresButtonProps)) {
+    // TODO;
+    // audio_pickup_coin.play();
+    // setupHighscoresScreen();
+    // screen = SCREEN_HIGHSCORES;
+  }
+
+  if (isMouseOver(tutorialButtonProps)) {
+    audio_pickup_coin.play();
+    setupTutorialScreen();
   }
 }

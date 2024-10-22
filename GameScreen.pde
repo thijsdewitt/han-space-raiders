@@ -1,9 +1,17 @@
 int[][] grid; //<>//
 boolean isButtonPressed = false;
+String gameMap;
 
-void setupGameScreen() {
-  // grid = loadMap("maps/dust2.png");
-  grid = loadMap("maps/tutorial_2.png");
+void setupGameScreen(String map) {
+  isButtonPressed = false;
+
+  // reset gifs
+  button.jump(0);
+  gate_left.jump(0);
+  gate_right.jump(0);
+
+  gameMap = map;
+  grid = loadMap("maps/" + map +".png");
 
   UNIT = constrain(calculateUnitSize(), 16, 64);
   SCALE = UNIT / 16;
@@ -155,11 +163,7 @@ void onMove(int player, float x, float y) {
       break;
     case 6:
       audio_portal.play();
-      if (player == 1) {
-        player1Win();
-      } else {
-        player2Win();
-      }
+      onMoveThroughPortal(player);
       break;
     case 9 :
       audio_steal_coins.play();
@@ -193,5 +197,28 @@ void drawGrid(int[][] grid) {
         image(overlayTiles[cell / 100], x * UNIT, y * UNIT, UNIT, UNIT);
       }
     }
+  }
+}
+
+void onMoveThroughPortal(int player) {
+  switch (gameMap) {
+  case "tutorial_0":
+    setupGameScreen("tutorial_1");
+    break;
+  case "tutorial_1":
+    setupGameScreen("tutorial_2");
+    break;
+  case "tutorial_2":
+    screen = SCREEN_START;
+    break;
+  case "dust2":
+    if (player == 1) {
+      player1Win();
+    } else {
+      player2Win();
+    }
+    break;
+  default:
+    break;
   }
 }

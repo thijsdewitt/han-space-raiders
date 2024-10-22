@@ -83,7 +83,7 @@ int[][] loadMap(String file) {
     }
   }
 
-  grid[20][6] = 900;
+  // grid[20][6] = 900;
 
   return grid;
 }
