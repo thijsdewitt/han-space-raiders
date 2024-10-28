@@ -17,9 +17,10 @@ void resetPlayer2Oxygen() {
 }
 
 void setupPlayer2() {
-  resetPlayer2Oxygen();
   player2Dest = player2Pos.copy();
   isPlayer2Alive = true;
+  resetPlayer2Oxygen();
+  player2Score = 0;
   player2Running = getPlayerImages(loadImage("assets/images/player2_moving.png"), 16, 17);
   player2Idle = getPlayerImages(loadImage("assets/images/player2_idle.png"), 16, 16);
 }
@@ -29,26 +30,26 @@ void drawPlayer2() {
     player2Death();
     return;
   }
-  
+
   if (!GODMODE && !isPlayer2Alive) {
     return;
   }
-  
+
   isPlayer2Moving = player2Pos.dist(player2Dest) > 0.125;
-  
+
   if (isPlayer2Moving) {
     PVector diff = player2Dest.copy().sub(player2Pos);
     PVector prevPos = player2Pos.copy();
     player2Pos.add(diff.copy().normalize().div(frameRate / 4));
-    
+
     // only send move event if player actually moved to a new tile
     if (round(player2Pos.x) != round(prevPos.x) || round(player2Pos.y) != round(prevPos.y)) {
       onMove(2, round(player2Pos.x), round(player2Pos.y));
     }
   }
-  
+
   PVector pos = player2Pos.copy().mult(UNIT);
-  
+
   // draw 8 frames per second;
   int tile = (millis() / 125 + 4) % 8;
   if (isPlayer2Moving) {
@@ -56,7 +57,7 @@ void drawPlayer2() {
   } else {
     image(player2Idle[player2Direction][tile], pos.x, pos.y, 16 * SCALE, 16 * SCALE);
   }
-  
+
   rectMode(CORNER);
   noStroke();
   fill(BLACK);
@@ -67,35 +68,35 @@ void drawPlayer2() {
 
 void keyPressedPlayer2() {
   if (isPlayer2Moving) return;
-  
+
   switch(keyCode) {
-    case UP:
-      player2Direction = 2;
-      while(beforeMove(player2Dest.x, player2Dest.y - 1)) {
-        player2Dest.y--;
-      }
-      break;
-    case RIGHT:
-      player2Direction = 1;
-      while(beforeMove(player2Dest.x + 1, player2Dest.y)) {
-        player2Dest.x++;
-      }
-      break;
-    case DOWN:
-      player2Direction = 0;
-      while(beforeMove(player2Dest.x, player2Dest.y + 1)) {
-        player2Dest.y++;
-      }
-      break;
-    case LEFT:
-      player2Direction = 3;
-      while(beforeMove(player2Dest.x - 1, player2Dest.y)) {
-        player2Dest.x--;
-      }
-      break;
-    default:
+  case UP:
+    player2Direction = 2;
+    while (beforeMove(player2Dest.x, player2Dest.y - 1)) {
+      player2Dest.y--;
+    }
     break;
-  } 
+  case RIGHT:
+    player2Direction = 1;
+    while (beforeMove(player2Dest.x + 1, player2Dest.y)) {
+      player2Dest.x++;
+    }
+    break;
+  case DOWN:
+    player2Direction = 0;
+    while (beforeMove(player2Dest.x, player2Dest.y + 1)) {
+      player2Dest.y++;
+    }
+    break;
+  case LEFT:
+    player2Direction = 3;
+    while (beforeMove(player2Dest.x - 1, player2Dest.y)) {
+      player2Dest.x--;
+    }
+    break;
+  default:
+    break;
+  }
 }
 
 void player2Death() {

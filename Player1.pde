@@ -17,9 +17,10 @@ void resetPlayer1Oxygen() {
 }
 
 void setupPlayer1() {
-  resetPlayer1Oxygen();
   player1Dest = player1Pos.copy();
   isPlayer1Alive = true;
+  resetPlayer1Oxygen();
+  player1Score = 0;
   player1Running = getPlayerImages(loadImage("assets/images/player1_moving.png"), 16, 17);
   player1Idle = getPlayerImages(loadImage("assets/images/player1_idle.png"), 16, 16);
 }
