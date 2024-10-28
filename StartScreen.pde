@@ -20,6 +20,8 @@ void drawStartScreen() {
   text("SPACE RAIDERS", width / 2, height * 0.3);
   fill(WHITE);
   text("SPACE RAIDERS", width / 2, height * 0.3 - 8);
+  textSize(32);
+  text("By THIJS", width / 2, height * 0.3 + 56);
 
   textSize(48);
   startButtonProps[BUTTON_X] = width / 2;
