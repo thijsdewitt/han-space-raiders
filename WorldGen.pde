@@ -10,6 +10,7 @@ final int BUTTON = #FF00FF;
 final int PORTAL = #FF0088;
 final int GATE_LEFT = #000060;
 final int GATE_RIGHT = #000068;
+final int BAD_RAIDER = #B00000;
 
 int[][] loadMap(String file) {
   PImage minimap = loadImage(file);
@@ -67,6 +68,9 @@ int[][] loadMap(String file) {
       break;
     case GATE_RIGHT:
       grid[y][x] = 899;
+      break;
+    case BAD_RAIDER:
+      grid[y][x] = 900;
       break;
     default:
       // Trick from https://processing.org/reference/rightshift.html
