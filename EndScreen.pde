@@ -1,12 +1,16 @@
 void drawEndScreen() {
-  background(BLACK);
-  
-  fill(WHITE);
-  textSize(48);
+  background(PRIMARY_950);
+
   textAlign(CENTER, CENTER);
-  
-  text("GAME OVER", width / 2, height / 2 - 100);
-  text("SCORE: " + player1Score, width / 2, height / 2);
+  textSize(96);
+
+  stroke(WHITE);
+  strokeWeight(3);
+
+  fill(BLACK);
+  text("GAME OVER", width / 2, height * 0.3);
+  fill(WHITE);
+  text("GAME OVER", width / 2, height * 0.3 - 8);
 }
 
 void mouseClickedEndScreen() {
