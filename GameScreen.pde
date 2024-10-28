@@ -83,14 +83,49 @@ void drawControls() {
 
   buttonProps[BUTTON_X] += 100;
   text("MOVE", buttonProps[BUTTON_X], buttonProps[BUTTON_Y]);
+
+  if (playerCount[playerCountIndex] == "2") {
+    fill(#22FFFFFF);
+    buttonProps[BUTTON_X] = width - 60 - 40;
+    drawButton("→", buttonProps);
+
+    fill(#22FFFFFF);
+    buttonProps[BUTTON_X] -= 60;
+    drawButton("←", buttonProps);
+
+    fill(#22FFFFFF);
+    buttonProps[BUTTON_X] -= 60;
+    drawButton("↓", buttonProps);
+
+    fill(#22FFFFFF);
+    buttonProps[BUTTON_X] -= 60;
+    drawButton("↑", buttonProps);
+
+    buttonProps[BUTTON_X] -= 100;
+    text("MOVE", buttonProps[BUTTON_X], buttonProps[BUTTON_Y]);
+  }
 }
 
 void drawScore() {
-  fill(WHITE);
-  textSize(30);
-  textAlign(RIGHT, TOP);
-  text("SCORE: " + player1Score, width - 60, 60);
-  image(overlayTiles[1], width - 60 - textWidth("SCORE: " + player1Score) - 40, 56, 32, 32);
+  if (playerCount[playerCountIndex] == "1") {
+    fill(WHITE);
+    textSize(30);
+    textAlign(RIGHT, TOP);
+    text("SCORE: " + player1Score, width - 60, 60);
+    image(overlayTiles[1], width - 60 - textWidth("SCORE: " + player1Score) - 40, 56, 32, 32);
+  } else {
+    fill(WHITE);
+    textSize(30);
+    textAlign(LEFT, TOP);
+    text("SCORE: " + player1Score, 72, 100);
+    image(overlayTiles[1], 32, 96, 32, 32);
+
+    fill(WHITE);
+    textSize(30);
+    textAlign(RIGHT, TOP);
+    text("SCORE: " + player2Score, width - 60, 100);
+    image(overlayTiles[1], width - 60 - textWidth("SCORE: " + player2Score) - 40, 96, 32, 32);
+  }
 }
 
 void mouseClickedGameScreen() {

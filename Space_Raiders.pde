@@ -6,8 +6,9 @@ final int SCREEN_GAME = 2;
 final int SCREEN_END = 3;
 final int SCREEN_HIGHSCORES = 4;
 final int SCREEN_WIN = 5;
+final int SCREEN_TUTORIAL = 6;
 
-// scale factor for assets (default 16x16); will be recalulcated on setupGameScreen
+// default scale factor for assets (default 16x16); will be recalulcated on setupGameScreen
 float SCALE = 4;
 float UNIT = 16 * SCALE;
 
@@ -42,6 +43,9 @@ void draw() {
   case SCREEN_WIN:
     drawWinScreen();
     break;
+  case SCREEN_TUTORIAL:
+    drawTutorialScreen();
+    break;
   default:
     drawGameSetupScreen();
     break;
@@ -68,6 +72,9 @@ void mouseClicked() {
   case SCREEN_WIN:
     mouseClickedWinScreen();
     break;
+  case SCREEN_TUTORIAL:
+    mouseClickedTutorialScreen();
+    break;
   default:
     mouseClickedGameSetupScreen();
     break;
@@ -78,6 +85,9 @@ void keyPressed() {
   switch(screen) {
   case SCREEN_GAME:
     keyPressedGameScreen();
+    break;
+  case SCREEN_TUTORIAL:
+    keyPressedTutorialScreen();
     break;
   default:
     break;

@@ -57,14 +57,14 @@ void mouseClickedStartScreen() {
   }
 
   if (isMouseOver(highscoresButtonProps)) {
-    // TODO;
-    // audio_pickup_coin.play();
-    // setupHighscoresScreen();
-    // screen = SCREEN_HIGHSCORES;
+    audio_pickup_coin.play();
+    setupHighscoresScreen();
+    screen = SCREEN_HIGHSCORES;
   }
 
   if (isMouseOver(tutorialButtonProps)) {
     audio_pickup_coin.play();
     setupTutorialScreen();
+    screen = SCREEN_TUTORIAL;
   }
 }

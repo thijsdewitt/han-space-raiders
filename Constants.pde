@@ -1,4 +1,4 @@
-final boolean INFINITE_OXYGEN = true;
+final boolean INFINITE_OXYGEN = false;
 final boolean GODMODE = false;
 final boolean NOCLIP = false;
 

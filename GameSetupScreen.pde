@@ -45,19 +45,7 @@ void drawGameSetupScreen() {
   }
   drawButton("START SPEL", gameSetupstartButtonProps);
 
-
-  textSize(32);
-  textAlign(CENTER, CENTER);
-  gameSetupBackButtonProps[BUTTON_X] = 60;
-  gameSetupBackButtonProps[BUTTON_Y] = height - 60;
-  gameSetupBackButtonProps[BUTTON_WIDTH] = 40;
-  gameSetupBackButtonProps[BUTTON_HEIGHT] = 40;
-
-  fill(#22FFFFFF);
-  if (isMouseOver(gameSetupBackButtonProps)) {
-    fill(#55FFFFFF);
-  }
-  drawButton("<", gameSetupBackButtonProps);
+  drawBackButton(gameSetupBackButtonProps);
 
   image(coin, 200, 200, UNIT, UNIT);
   image(blue_coin, 200, 300, UNIT, UNIT);

@@ -57,3 +57,18 @@ int handleButtonBarClicked(String[] labels, int active) {
   }
   return active;
 }
+
+void drawBackButton(float[] buttonProps) {
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  buttonProps[BUTTON_X] = 60;
+  buttonProps[BUTTON_Y] = height - 60;
+  buttonProps[BUTTON_WIDTH] = 40;
+  buttonProps[BUTTON_HEIGHT] = 40;
+
+  fill(#22FFFFFF);
+  if (isMouseOver(buttonProps)) {
+    fill(#55FFFFFF);
+  }
+  drawButton("<", buttonProps);
+}
