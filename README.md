@@ -5,8 +5,8 @@ Welcome to the **Space Raiders** project!
 Space Raiders is an exciting space-themed game where players navigate through the galaxy, battling enemies and collecting resources. The game is designed to provide an immersive experience with stunning graphics and engaging gameplay.
 
 ## Table of Contents
+- [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
