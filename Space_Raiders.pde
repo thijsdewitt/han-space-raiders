@@ -1,3 +1,4 @@
+import gifAnimation.*;
 import processing.sound.SoundFile;
 
 final int SCREEN_START = 0;

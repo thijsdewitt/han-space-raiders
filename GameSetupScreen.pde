@@ -1,7 +1,3 @@
-import gifAnimation.*;
-
-int buttonColor = #00aa00;
-
 float[] gameSetupstartButtonProps = new float[4];
 float[] gameSetupBackButtonProps = new float[4];
 

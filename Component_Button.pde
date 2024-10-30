@@ -29,32 +29,22 @@ boolean isMouseOver(float[] buttonProps) {
 }
 
 int drawButtonBar(float x, float y, String[] labels, int active) {
-  for (int i = 0; i < labels.length; i++) {
-    String label = labels[i];
-    float[] buttonProps = {(x - (100 * labels.length / 2)) + 50 + i * 100, y, 100, 60};
+  for (int buttonIndex = 0; buttonIndex < labels.length; buttonIndex++) {
+    String label = labels[buttonIndex];
+    float[] buttonProps = {(x - (100 * labels.length / 2)) + 50 + buttonIndex * 100, y, 100, 60};
     fill(PRIMARY_600);
     if (isMouseOver(buttonProps)) {
       fill(PRIMARY_700);
     }
-    if (i == active) {
+    if (buttonIndex == active) {
       fill(SECONDARY_500);
     }
     drawButton(label, buttonProps);
     if (isMouseOver(buttonProps) && mousePressed) {
-      active = i;
+      active = buttonIndex;
     }
   }
 
-  return active;
-}
-
-int handleButtonBarClicked(String[] labels, int active) {
-  for (int i = 0; i < labels.length; i++) {
-    float[] buttonProps = {100 + i * 100, 100, 100, 60};
-    if (isMouseOver(buttonProps)) {
-      return i;
-    }
-  }
   return active;
 }
 
