@@ -4,6 +4,8 @@ String gameMap;
 
 void setupGameScreen(String map) {
   isButtonPressed = false;
+  isPlayer1Alive = false;
+  isPlayer2Alive = false;
 
   // reset gifs
   button.jump(0);
