@@ -108,6 +108,7 @@ void player1Death() {
 void player1Win() {
   if (isPlayer1Alive) {
     isPlayer1Alive = false;
+    setupWinScreen(1);
     screen = SCREEN_WIN;
   }
 }

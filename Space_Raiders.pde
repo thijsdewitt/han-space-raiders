@@ -54,6 +54,9 @@ void draw() {
 }
 
 void mouseClicked() {
+  // setupPlayer1();
+  // setupWinScreen(1);
+  // screen = SCREEN_WIN;
   switch(screen) {
   case SCREEN_START:
     mouseClickedStartScreen();
